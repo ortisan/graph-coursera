@@ -29,6 +29,7 @@ public class Acyclicity {
         recurStack[startVertex] = true;
 
         ArrayList<Integer> neighbors = adj[startVertex];
+        // if in exploration, the vertex pass 2x (is in recurrStack) is a cycle...
         for (Integer n : neighbors) {
             if (!visited[n]) {
                 if (explore(adj, n)) {

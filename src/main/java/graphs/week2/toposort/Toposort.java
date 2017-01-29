@@ -12,6 +12,7 @@ public class Toposort {
         visited = new boolean[adj.length];
         stack = new Stack<Integer>();
 
+        // makes the DFS ... the last element (sink) is first element of stack.
         for (int i = 0; i < adj.length; i++) {
             if (!visited[i]) {
                 dfs(adj, i);

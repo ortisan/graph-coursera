@@ -10,8 +10,9 @@ public class StronglyConnected {
 
         visited = new boolean[adj.length];
         stack = new Stack<Integer>();
-        for (int i = 0; i < adj.length; i++) {
-            if (visited[i] == false) {
+        // Find sink in reverse graph (vertexes with bigger post order)
+        for (int i = 0; i < reverse.length; i++) {
+            if (!visited[i]) {
                 dfs(reverse, i);
             }
         }
@@ -20,7 +21,7 @@ public class StronglyConnected {
         visited = new boolean[adj.length];
 
         int numberStrongly = 0;
-
+        // Remove sink and find neighbors... the tree is a strongly component.
         while (it.hasNext()) {
             int v = stack.pop();
             if (!visited[v]) {
